@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CreatorFlow is a lightweight browser-based content planning and script generator.">
+  <title>CreatorFlow — Content Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">✦</span> CreatorFlow</div>
+    <span class="badge">100% browser-based</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">CONTENT STUDIO</p>
+      <h1>Turn one idea into a complete content pack.</h1>
+      <p class="sub">Generate a hook, short-form script, caption, call-to-action and hashtags without an account or API key.</p>
+    </section>
+
+    <section class="card">
+      <label for="topic">What is your content about?</label>
+      <textarea id="topic" rows="3" placeholder="Example: How to make money online as a beginner"></textarea>
+
+      <div class="grid">
+        <div>
+          <label for="platform">Platform</label>
+          <select id="platform">
+            <option value="tiktok">TikTok</option>
+            <option value="instagram">Instagram Reels</option>
+            <option value="youtube">YouTube Shorts</option>
+            <option value="facebook">Facebook Reels</option>
+          </select>
+        </div>
+        <div>
+          <label for="tone">Tone</label>
+          <select id="tone">
+            <option value="bold">Bold</option>
+            <option value="friendly">Friendly</option>
+            <option value="educational">Educational</option>
+            <option value="motivational">Motivational</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="generate">Generate content pack</button>
+      <p id="error" class="error" aria-live="polite"></p>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="result-card"><div class="result-head"><h2>Hook</h2><button data-copy="hook">Copy</button></div><p id="hook"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Script</h2><button data-copy="script">Copy</button></div><p id="script"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Caption</h2><button data-copy="caption">Copy</button></div><p id="caption"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Call to action</h2><button data-copy="cta">Copy</button></div><p id="cta"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Hashtags</h2><button data-copy="hashtags">Copy</button></div><p id="hashtags"></p></div>
+    </section>
+  </main>
+
+  <footer>CreatorFlow • Built with plain HTML, CSS and JavaScript • No data leaves your browser</footer>
+  <script src="app.js"></script>
+</body>
+</html>
