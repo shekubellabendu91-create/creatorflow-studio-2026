@@ -19,7 +19,7 @@ assert.ok(bold.cta.includes('study tips'));
 const educational = content.buildContent('café habits', 'instagram', 'educational');
 assert.equal(educational.hook, "Here's a simple breakdown of café habits.");
 assert.match(educational.hashtags, /#instagramreels/);
-assert.match(educational.hashtags, /#cafhabits/);
+assert.match(educational.hashtags, /#cafehabits/);
 
 const fallback = content.buildContent('gardening', 'unknown-platform', 'unknown-tone');
 assert.match(fallback.script, /short-form video/);
