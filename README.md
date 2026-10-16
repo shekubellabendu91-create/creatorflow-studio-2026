@@ -1,88 +1,54 @@
-# CreatorFlow Studio — For Sale
+# CreatorFlow Studio
 
-**A ready-to-develop short-form content creation tool**
+CreatorFlow Studio is a lightweight, browser-based tool that turns a topic into a short-form social content pack: a hook, script, caption, call to action, and hashtags.
 
-## 💰 Project available for acquisition — $5,000 USD
+## Live demo
 
-CreatorFlow Studio is a lightweight, browser-based content studio that turns one topic into a ready-to-use short-form content pack:
+https://shekubellabendu91-create.github.io/creatorflow-studio-2026/
 
-- **Hook**
-- **Script**
-- **Caption**
-- **Call to action**
-- **Hashtags**
+## Features
 
-### 🎯 Who can build on it
+- Supports TikTok, Instagram Reels, YouTube Shorts, and Facebook Reels.
+- Offers bold, friendly, educational, and motivational tones.
+- Copies each output section to the clipboard, with a fallback for browsers that do not support the Clipboard API.
+- Runs entirely in the browser; the current version does not send topics or generated content to a server.
+- Includes input validation and accessible inline error messages.
 
-- Content creators
-- Social media managers
-- Marketing agencies
-- Small businesses
-- SaaS founders
-- Entrepreneurs looking for a simple content-product starting point
+## Run locally
 
-## 🚀 Current features
+No build step or third-party runtime dependency is required.
 
-- No account required
-- No API key required
-- Works on phones and computers
-- Plain HTML, CSS and JavaScript
-- Browser-based generation
-- No user content needs to be sent to a server
-- Copy buttons for generated sections
+1. Clone or download this repository.
+2. Open `index.html` in a modern browser, or serve the folder with any static HTTP server.
+3. Enter a topic, choose a platform and tone, and select **Generate content pack**.
 
-## 🧩 Technology
+## Development and tests
+
+Requires Node.js 18 or newer.
+
+Run the dependency-free behavior tests from the repository root:
+
+```sh
+npm test
+```
+
+Content generation lives in `content.js` as a reusable module. The browser UI and clipboard behavior are wired in `app.js`. The tests exercise real output values, fallback behavior, validation, and the main UI flow rather than only searching source code for strings.
+
+## Technology
 
 - HTML
 - CSS
-- JavaScript
-- GitHub Pages
-- No database required
-- No external AI API required in the current version
+- Vanilla JavaScript
+- Node.js built-in test assertions and VM for smoke/behavior tests
 
-## 📦 What the buyer receives
+## Project status
 
-- Complete project source code
-- HTML/CSS/JavaScript files
-- Project/branding assets that are part of the project
-- Working demo
-- Existing documentation
-- Assistance with transfer/setup can be discussed
+This is a pre-revenue project with no paying customers. It is offered for acquisition at a proposed asking price of **$5,000 USD**, negotiable. The asking price is not a valuation or a guarantee of sale.
 
-## 📊 Business status
+## Acquisition package
 
-**Pre-revenue.** CreatorFlow Studio currently has **$0 revenue and no paying customers**. This is a working project being offered for acquisition and further development.
-
-The $5,000 asking price reflects the working product, source code, existing foundation, and development potential. **Price is negotiable.**
-
-## 🌐 Demo
-
-**Live demo:**
-https://shekubellabendu91-create.github.io/creatorflow-studio-2026/
-
-## 🔥 Growth opportunities
-
-A new owner could expand CreatorFlow with:
-
-- OpenAI or other AI API integration
-- User accounts and saved content
-- Subscription plans
-- Credit-based usage
-- Team/agency features
-- White-label versions
-- Social platform integrations
-- Templates and content libraries
-- SEO/content marketing
-- Creator and agency partnerships
-
-## 🤝 Acquisition
-
-Interested in acquiring CreatorFlow Studio for **$5,000 USD** or making an offer?
-
-Please contact the repository owner through GitHub to discuss the project, demo, source code, transfer terms, and payment/escrow arrangements.
-
-**Important:** The repository's current software license should be reviewed before any transaction. Any exclusive rights, ownership transfer, or relicensing terms must be agreed separately with the buyer.
+The package can include the current source code, project files, and existing branding/design assets. Any exclusive ownership, commercial licensing, support, and transfer terms must be agreed in writing before a transaction.
 
 ## License
 
-See the repository's `LICENSE` file for the current license terms.
+Review the repository's `LICENSE` file and agree on the applicable rights before redistributing or transferring the project.
