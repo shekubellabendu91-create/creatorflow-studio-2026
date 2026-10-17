@@ -1,0 +1,19 @@
+# Local environment and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies/build output (not used by this static app, but keep local installs out)
+node_modules/
+dist/
+coverage/
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
