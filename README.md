@@ -38,7 +38,7 @@ Requires Node.js 18 or newer. Run the dependency-free behavior tests from the re
 npm test
 ```
 
-Content generation lives in `content.js` as a reusable module. The browser UI and clipboard behavior are wired in `app.js`. GitHub Actions runs the behavior tests on repository changes.
+Content generation lives in `content.js` as a reusable module. The browser UI and clipboard behavior are wired in `app.js`. `creator-desk/app.js` manages the local project tracker. Run `npm test` to exercise CreatorFlow content/UI behavior and CreatorDesk project creation, storage failures, HTML escaping, filtering, sorting, and clearing. GitHub Actions checks JavaScript syntax, installs from the lockfile, runs the tests, and performs an npm audit. See [ARCHITECTURE.md](ARCHITECTURE.md) and [SECURITY.md](SECURITY.md) for implementation and privacy notes.
 
 ## Technology
 
