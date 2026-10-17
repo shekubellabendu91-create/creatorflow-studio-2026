@@ -4,7 +4,7 @@
   "private": true,
   "description": "Browser-based short-form content pack generator.",
   "scripts": {
-    "test": "node tests/app.test.js"
+    "test": "node tests/app.test.js && node tests/creator-desk.test.js"
   },
   "engines": {
     "node": ">=18"
