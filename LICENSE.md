@@ -1,64 +1,55 @@
 # CreatorFlow Studio — Proposed Commercial and White-Label License
 
-**Status:** This document is a proposed license template for discussion. It is not a signed agreement or legal advice. The parties should sign a final agreement and confirm payment, scope, and applicable law before commercial use.
+**Status:** Proposed terms for discussion only; not legal advice and not effective until both parties sign a final agreement.
 
-**Licensor:** Repository owner, contacted at shekubellabendu91@gmail.com  
-**Product:** CreatorFlow Studio and, only if expressly included in the signed order, CreatorDesk  
-**Proposed one-time license fee:** USD $5,000 (negotiable; not paid by this document)
+**Licensor/contact:** Repository owner, shekubellabendu91@gmail.com  
+**Default product included:** CreatorFlow Studio only  
+**Optional product:** CreatorDesk, only when explicitly listed in the signed order  
+**Proposed one-time fee:** US$5,000, negotiable; this document is not an invoice or offer guarantee.
 
-## 1. What is included
+## 1. Exact scope and deliverables
 
-Unless the signed order says otherwise, the licensed package includes the source files present in the named repository on the agreed delivery date, including HTML, CSS, JavaScript, documentation, and automated tests for the included app(s). The exact commit/release and included folders must be recorded in the signed order.
+Unless the signed order expressly changes this scope, the package covers the CreatorFlow Studio application in the repository at the exact commit/release recorded in the signed order:
 
-The proposed package may include:
-- The CreatorFlow Studio browser-based content-pack generator.
-- Source code and documentation needed to run and customize the included static app.
-- Permission to deploy a customized or rebranded version for the licensee's own business.
-- One handoff session and up to 30 days of reasonable bug-fix support for reproducible defects in the delivered version, only if confirmed in the signed order.
+- `index.html`, `style.css`, `app.js`, and `content.js`;
+- `README.md`, `ARCHITECTURE.md`, `DEPLOYMENT.md`, and `SECURITY.md`;
+- `tests/app.test.js`, `package.json`, and `package-lock.json`;
+- the current static demo deployment URL and written setup/deployment instructions.
 
-CreatorDesk is a separate browser-only prototype. It is included only if explicitly named in the signed order.
+The package does **not** include the separate `creator-desk/` app, other repositories, domain ownership, GitHub account ownership, third-party accounts, buyer-specific integrations, hosting, AI services/API access, or future updates unless these are explicitly added to the signed order. `creator-desk/` and its test are included only if the signed order names them.
 
-## 2. Rights granted
+Before payment, the final order should record the repository URL, exact commit SHA, final fee/currency, delivery method, support commitment, and every optional item included. If the repository changes after the agreed commit, the later changes are not automatically part of the package.
 
-After the agreed fee has been received and the final agreement is signed, the Licensor proposes to grant the licensee a **perpetual, worldwide, non-exclusive commercial license** to use, modify, customize, deploy, and white-label the included source code for the licensee's own products and business operations.
+## 2. Proposed rights granted
 
-The licensee may provide the resulting hosted product to its end users as part of its business. The licensee may not resell or distribute the source code itself as a standalone code asset, sublicense the source code to unrelated third parties, or claim ownership of the Licensor's original intellectual property unless a separate written agreement expressly grants those rights.
+After both parties sign the final agreement and cleared payment is received, the proposed license is **perpetual, worldwide, non-exclusive commercial and white-label use** of the included source code. The buyer may use, modify, rebrand, and deploy the included application for the buyer's own business and may provide the resulting hosted service to end users.
 
-This is a non-exclusive license: the Licensor may continue using, modifying, licensing, or selling the original project to others.
+The buyer may not resell or distribute the source code itself as a standalone code asset or sublicense it to unrelated third parties unless the final signed agreement expressly permits this.
 
-## 3. Ownership and third-party rights
+This is a **non-exclusive license**, not an IP sale: the licensor may continue using, modifying, licensing, or selling the original project to others. Any copyright/ownership transfer or exclusive license must be negotiated and stated in a separate signed agreement.
 
-The Licensor retains ownership of the original project and its intellectual property. This agreement does not transfer ownership or provide exclusivity. The licensee is responsible for reviewing third-party names, trademarks, fonts, assets, and any third-party material before commercial release. Product names such as TikTok, Instagram, YouTube, and Facebook belong to their respective owners; no affiliation or endorsement is implied.
+## 3. Product behavior and limitations
 
-## 4. Product functionality and limitations
+CreatorFlow Studio uses deterministic, template-based JavaScript to assemble hooks, scripts, captions, calls to action, and hashtags from the user's topic. It does **not** call an AI model or external AI API and has no backend. The delivered version must not be represented as an AI API product.
 
-CreatorFlow Studio currently uses **deterministic, template-based JavaScript** to assemble hooks, scripts, captions, calls to action, and hashtags from a user-provided topic. It does **not** currently connect to an AI model, external AI API, backend, or cloud service. Do not market the delivered version as an AI API product unless that capability is separately built and verified.
+CreatorDesk, if separately included, stores entries in the current browser's local storage and has no accounts, cloud sync, automated backup, invoicing, or payment processing. Neither app promises revenue, sales, buyer acceptance, or compatibility with every device/browser.
 
-CreatorDesk stores entries in the current browser's local storage. It has no account system, cloud synchronization, automated backup, invoicing, or payment processing. Both applications are supplied as-is except for any explicit support obligations written into the signed order.
+## 4. Exclusions and third-party rights
 
-## 5. Exclusions
+Unless explicitly included in the signed order, the fee excludes hosting, domains, payment-provider fees, third-party subscriptions, AI API access, backend/authentication/cloud-sync development, new features, ongoing maintenance, legal/tax advice, and ownership or exclusivity.
 
-Unless added in writing, the fee excludes:
-- Transfer of intellectual-property ownership or an exclusive license.
-- Hosting fees, domains, payment-provider fees, third-party subscriptions, and ongoing maintenance.
-- New features, integrations, AI API access, backend development, authentication, or cloud synchronization.
-- Legal, tax, or regulatory advice.
-- A guarantee of revenue, sales, performance, buyer acceptance, or compatibility with every device/browser.
+Third-party trademarks and services remain owned/controlled by their respective owners and subject to their terms. No affiliation or endorsement by TikTok, Instagram, YouTube, Facebook, or other third parties is implied. The buyer is responsible for reviewing third-party assets and terms before release.
 
-## 6. Delivery, payment, and support
+## 5. Support and delivery
 
-The signed order must state the final price, currency, payment method, delivery method, included commit/files, support start/end dates, and any agreed milestones. Source delivery and license activation occur only after the parties have signed the final agreement and the agreed payment has cleared, unless the final agreement states otherwise.
+A handoff session and up to 30 days of reasonable bug-fix support are **proposed only if confirmed in the signed order**. Support covers reproducible defects in the delivered version; it excludes new features, third-party service failures, and changes made by the buyer.
 
-Support covers only reproducible defects in the delivered version. It does not include feature development, third-party service failures, or changes made by the licensee. Any extra work requires a separate written quote.
+The signed order must define the delivery date/method, support dates, payment method, governing law, and any agreed warranty/liability terms. Delivery and license activation occur after signature and cleared payment unless the final agreement says otherwise.
 
-## 7. Warranty and liability
+## 6. No automatic commercial grant
 
-Except for obligations expressly written in the signed agreement and to the extent permitted by applicable law, the software is provided “as is” without a promise that it will meet a particular business purpose. The parties should agree on any liability limits and governing law in the final signed agreement.
-
-## 8. Acceptance
-
-A commercial license is not created by viewing, downloading, or testing the public demo. The parties must confirm the final scope and execute a written agreement before the paid commercial license takes effect.
+Viewing, downloading, or testing the public demo does not create a paid commercial license. Both parties must agree to and sign the final written agreement before the paid commercial rights take effect. Seek qualified legal advice before signing a material transaction.
 
 ## Sales contact
 
-For licensing enquiries, contact **shekubellabendu91@gmail.com**. Do not send passwords, access tokens, payment-card data, or other secrets by email.
+Licensing enquiries: **shekubellabendu91@gmail.com**. Do not email passwords, access tokens, payment-card details, or other secrets.
