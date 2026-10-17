@@ -3,41 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="CreatorFlow turns one idea into a ready-to-post short-form content pack for TikTok, Instagram, YouTube and Facebook.">
+  <meta name="description" content="CreatorFlow turns one idea into a ready-to-use short-form content pack for TikTok, Instagram Reels, YouTube Shorts and Facebook Reels.">
   <meta name="theme-color" content="#111827">
-  <title>CreatorFlow — Content Studio</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CreatorFlow Studio — Short-form Content Toolkit">
+  <meta property="og:description" content="Create a hook, script, caption, call to action and hashtags from one topic.">
+  <title>CreatorFlow Studio — Short-form Content Toolkit</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="CreatorFlow home"><span class="logo">✦</span> CreatorFlow</a>
+    <a class="brand" href="#top" aria-label="CreatorFlow home"><span class="logo" aria-hidden="true">✦</span> CreatorFlow</a>
     <nav aria-label="Main navigation"><a href="#features">Features</a><a href="#license">License</a><a class="nav-cta" href="#demo">Try demo</a></nav>
   </header>
   <main id="top" class="container">
     <section class="hero">
-      <p class="eyebrow">CONTENT STUDIO</p><h1>Turn one idea into a complete content pack.</h1>
-      <p class="sub">Generate a hook, short-form script, caption, call-to-action and hashtags in seconds — no account or API key required.</p>
-      <div class="hero-actions"><a class="primary" href="#demo">Try CreatorFlow free</a><a class="secondary" href="#license">View commercial license</a></div>
-      <div class="trust"><span>✓ Browser-based</span><span>✓ No account</span><span>✓ No API key</span><span>✓ Mobile friendly</span></div>
+      <p class="eyebrow">SHORT-FORM CONTENT TOOLKIT</p>
+      <h1>One idea. A complete content pack.</h1>
+      <p class="sub">Create a hook, short-form script, caption, call to action and hashtags in seconds. Simple, browser-based and ready to try.</p>
+      <div class="hero-actions"><a class="primary" href="#demo">Try CreatorFlow</a><a class="secondary" href="#license">Commercial licensing</a></div>
+      <div class="trust"><span>✓ Runs in your browser</span><span>✓ No account required</span><span>✓ No API key required</span><span>✓ Mobile friendly</span></div>
     </section>
     <section id="demo" class="card demo-card">
-      <div class="section-heading"><div><p class="eyebrow small">LIVE DEMO</p><h2>Create your first content pack</h2></div><span class="pill">Free demo</span></div>
-      <label for="topic">What is your content about?</label><textarea id="topic" rows="3" placeholder="Example: How to make money online as a beginner"></textarea>
-      <div class="grid"><div><label for="platform">Platform</label><select id="platform"><option value="tiktok">TikTok</option><option value="instagram">Instagram Reels</option><option value="youtube">YouTube Shorts</option><option value="facebook">Facebook Reels</option></select></div><div><label for="tone">Tone</label><select id="tone"><option value="bold">Bold</option><option value="friendly">Friendly</option><option value="educational">Educational</option><option value="motivational">Motivational</option></select></div></div>
-      <button id="generate">Generate content pack</button><p id="error" class="error" aria-live="polite"></p>
+      <div class="section-heading"><div><p class="eyebrow small">INTERACTIVE DEMO</p><h2>Create a content pack</h2></div><span class="pill">Free to try</span></div>
+      <label for="topic">What is your content about?</label>
+      <textarea id="topic" rows="3" maxlength="200" placeholder="Example: study tips for busy students"></textarea>
+      <div class="grid">
+        <div><label for="platform">Platform</label><select id="platform"><option value="tiktok">TikTok</option><option value="instagram">Instagram Reels</option><option value="youtube">YouTube Shorts</option><option value="facebook">Facebook Reels</option></select></div>
+        <div><label for="tone">Writing style</label><select id="tone"><option value="bold">Bold</option><option value="friendly">Friendly</option><option value="educational">Educational</option><option value="motivational">Motivational</option></select></div>
+      </div>
+      <button id="generate" type="button">Generate content pack</button><p id="error" class="error" aria-live="polite"></p>
     </section>
-    <section id="results" class="results" hidden>
-      <div class="result-card"><div class="result-head"><h2>Hook</h2><button data-copy="hook">Copy</button></div><p id="hook"></p></div>
-      <div class="result-card"><div class="result-head"><h2>Script</h2><button data-copy="script">Copy</button></div><p id="script"></p></div>
-      <div class="result-card"><div class="result-head"><h2>Caption</h2><button data-copy="caption">Copy</button></div><p id="caption"></p></div>
-      <div class="result-card"><div class="result-head"><h2>Call to action</h2><button data-copy="cta">Copy</button></div><p id="cta"></p></div>
-      <div class="result-card"><div class="result-head"><h2>Hashtags</h2><button data-copy="hashtags">Copy</button></div><p id="hashtags"></p></div>
+    <section id="results" class="results" aria-label="Generated content" hidden>
+      <div class="result-card"><div class="result-head"><h2>Hook</h2><button type="button" data-copy="hook">Copy</button></div><p id="hook"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Script</h2><button type="button" data-copy="script">Copy</button></div><p id="script"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Caption</h2><button type="button" data-copy="caption">Copy</button></div><p id="caption"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Call to action</h2><button type="button" data-copy="cta">Copy</button></div><p id="cta"></p></div>
+      <div class="result-card"><div class="result-head"><h2>Hashtags</h2><button type="button" data-copy="hashtags">Copy</button></div><p id="hashtags"></p></div>
     </section>
-    <section id="features" class="feature-section"><div class="section-heading centered"><p class="eyebrow small">WHY CREATORFLOW</p><h2>Simple enough for creators. Useful enough for teams.</h2></div><div class="feature-grid"><article><span class="feature-icon">⚡</span><h3>Fast content planning</h3><p>Turn a single topic into several ready-to-use content elements without complicated setup.</p></article><article><span class="feature-icon">◎</span><h3>Built for short-form</h3><p>Choose TikTok, Instagram Reels, YouTube Shorts or Facebook Reels and tailor the tone.</p></article><article><span class="feature-icon">▣</span><h3>Easy to white-label</h3><p>A lightweight codebase that can be customized for agencies, creator teams and marketing products.</p></article></div></section>
-    <section id="license" class="license-card"><div><p class="eyebrow small">COMMERCIAL LICENSE</p><h2>License CreatorFlow for your business</h2><p>Use the starter product as a foundation for an internal tool, client-facing creator platform or white-label marketing product.</p><ul><li>Full source code for the current release</li><li>Commercial and white-label usage rights</li><li>Deployment guidance and customization notes</li><li>30 days of bug-fix support after delivery</li></ul></div><div class="price-box"><span>Commercial license</span><strong>$5,000</strong><small>One-time proposed asking price</small><a class="primary" href="https://github.com/shekubellabendu91-create/creatorflow-studio-2026/issues/1" target="_blank" rel="noopener">Request license on GitHub</a></div></section>
-    <section class="buyer-note"><h2>Built for a straightforward handoff</h2><p>CreatorFlow uses plain HTML, CSS and JavaScript, making the current version easy for a buyer or development team to inspect, customize and deploy.</p></section>
+    <section id="features" class="feature-section">
+      <div class="section-heading centered"><p class="eyebrow small">WHY CREATORFLOW</p><h2>Less time formatting. More time creating.</h2></div>
+      <div class="feature-grid">
+        <article><span class="feature-icon" aria-hidden="true">⚡</span><h3>Quick content planning</h3><p>Turn a single topic into several useful content elements without a complicated setup.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">◎</span><h3>Built for short-form</h3><p>Choose TikTok, Instagram Reels, YouTube Shorts or Facebook Reels and select a writing tone.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">▣</span><h3>Lightweight codebase</h3><p>Plain HTML, CSS and JavaScript make the current version easy to inspect and customize.</p></article>
+      </div>
+    </section>
+    <section id="license" class="license-card">
+      <div><p class="eyebrow small">COMMERCIAL LICENSING</p><h2>Make CreatorFlow your starting point.</h2><p>The current product can be used as a foundation for an internal tool, creator workflow or customized marketing product.</p><ul><li>Current source code and project files</li><li>Proposed commercial or white-label rights, subject to written agreement</li><li>Deployment and customization notes</li><li>Any support period to be agreed before purchase</li></ul></div>
+      <div class="price-box"><span>Proposed asking price</span><strong>$5,000</strong><small>One-time asking price • negotiable</small><a class="primary" href="https://github.com/shekubellabendu91-create/creatorflow-studio-2026" target="_blank" rel="noopener noreferrer">Inspect source code</a></div>
+    </section>
+    <section class="buyer-note"><h2>Clear, straightforward handoff</h2><p>CreatorFlow currently generates content in the browser and does not send topics or generated text to a server. It is a pre-revenue project; no paying customers or revenue are being claimed.</p></section>
   </main>
-  <footer>CreatorFlow • Commercial licensing available • Current demo is browser-only and does not send user content to a server.</footer>
-  <script src="content.js"></script>\n  <script src="app.js"></script>
+  <footer>CreatorFlow Studio · Browser-based demo · Commercial terms subject to written agreement</footer>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
