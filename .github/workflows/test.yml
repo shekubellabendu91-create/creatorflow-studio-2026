@@ -1,21 +1,35 @@
-name: CreatorFlow tests
+name: Quality checks
 
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
       - name: Check JavaScript syntax
         run: |
           node --check content.js
           node --check app.js
           node --check creator-desk/app.js
-      - name: Run CreatorFlow behavior tests
+          node --check tests/app.test.js
+          node --check tests/creator-desk.test.js
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run behavior tests
         run: npm test
+      - name: Check dependency vulnerabilities
+        run: npm audit --omit=dev
