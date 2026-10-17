@@ -1,57 +1,73 @@
 # CreatorFlow Studio
 
-CreatorFlow Studio is a lightweight browser-based tool that turns a topic into a short-form social content pack: a hook, script, caption, call to action, and hashtags.
+CreatorFlow Studio is a lightweight browser-based short-form content toolkit. Enter a topic and choose a platform and tone to generate a content pack containing a hook, script, caption, call to action, and hashtags.
 
-## Projects in this repository
+## Live demos
 
-- **CreatorFlow Studio** — the main short-form content generator.
-- **CreatorDesk** — an independent browser-only client and project tracker in the [creator-desk folder](creator-desk/README.md).
+- **CreatorFlow Studio:** https://shekubellabendu91-create.github.io/creatorflow-studio-2026/
+- **CreatorDesk:** https://shekubellabendu91-create.github.io/creatorflow-studio-2026/creator-desk/
 
-## Demo links
+These are GitHub Pages static demos. If a link is unavailable, run the app locally using the steps below.
 
-- Main CreatorFlow demo: https://shekubellabendu91-create.github.io/creatorflow-studio-2026/
-- CreatorDesk source folder: [creator-desk](creator-desk/)
+## Product features
 
-If the main demo link does not open, use the local run instructions below. A GitHub Pages URL is not confirmed working until it has been checked in a browser.
-
-## CreatorFlow features
-
+### CreatorFlow Studio
 - Supports TikTok, Instagram Reels, YouTube Shorts, and Facebook Reels.
-- Offers bold, friendly, educational, and motivational tones.
-- Copies each output section to the clipboard, with a fallback for browsers that do not support the Clipboard API.
-- Runs in the browser; the current version does not send topics or generated content to a server.
-- Includes input validation and accessible inline error messages.
+- Four writing tones: bold, friendly, educational, and motivational.
+- Generates five content elements: hook, script, caption, call to action, and hashtags.
+- Copy buttons with a fallback for browsers without the Clipboard API.
+- Input validation, inline error messages, responsive layout, and no account/API key required.
 
-## Run CreatorFlow locally
+### CreatorDesk
+- Browser-only client/project tracker with budgets, due dates, notes, and statuses.
+- Search, status filtering, summary statistics, and CSV export.
+- Stores data in local storage on the current browser/device; no cloud sync or account recovery.
+
+## Important product disclosure
+
+**CreatorFlow is template-based, not an AI API product.** The current generator uses deterministic JavaScript templates and does not call an AI model, external AI API, backend, or cloud service. Output quality depends on the input and built-in templates. No AI API access is included.
+
+Neither app currently provides user accounts, cloud synchronization, payment processing, or a hosted backend. CreatorDesk is a separate prototype and is included in a commercial package only if the signed license expressly lists it.
+
+## Run locally
 
 No build step or third-party runtime dependency is required.
 
-1. Clone or download this repository.
-2. Open `index.html` in a modern browser, or serve the folder with any static HTTP server.
-3. Enter a topic, choose a platform and tone, and select **Generate content pack**.
+1. Install Node.js 18 or newer if you want to run the tests.
+2. Download or clone this repository.
+3. Open the root `index.html` in a modern browser to run CreatorFlow Studio.
+4. Open `creator-desk/index.html` to run CreatorDesk.
+
+You can also serve the repository root with any static HTTP server and visit `/` or `/creator-desk/`.
 
 ## Development and tests
 
-Requires Node.js 18 or newer. Run the dependency-free behavior tests from the repository root:
+Run the dependency-free behavior tests from the repository root:
 
 ```sh
 npm test
 ```
 
-Content generation lives in `content.js` as a reusable module. The browser UI and clipboard behavior are wired in `app.js`. `creator-desk/app.js` manages the local project tracker. Run `npm test` to exercise CreatorFlow content/UI behavior and CreatorDesk project creation, storage failures, HTML escaping, filtering, sorting, and clearing. GitHub Actions checks JavaScript syntax, installs from the lockfile, runs the tests, and performs an npm audit. See [ARCHITECTURE.md](ARCHITECTURE.md) and [SECURITY.md](SECURITY.md) for implementation and privacy notes.
+Tests cover topic normalization, hashtag generation, platform/tone output, invalid input, and core browser interactions for CreatorFlow; they also cover CreatorDesk project creation, storage failure handling, malformed stored data, HTML escaping, filtering, sorting, and clearing.
+
+GitHub Actions runs JavaScript syntax checks, installs from the lockfile, runs tests, and performs an npm audit. See [ARCHITECTURE.md](ARCHITECTURE.md) and [SECURITY.md](SECURITY.md).
 
 ## Technology
 
 - HTML, CSS, vanilla JavaScript
 - Node.js built-in assertions and VM for behavior tests
-- No third-party runtime dependencies
+- No third-party runtime dependencies or build process
 
-## Project status and commercial terms
+## Commercial / white-label licensing
 
-CreatorFlow Studio is a pre-revenue project with no paying customers. The proposed asking price is **$5,000 USD**, negotiable. This is an asking price, not a verified valuation or guarantee of sale. Any commercial or exclusive license, support period, and ownership-transfer terms must be agreed in writing before a transaction.
+The proposed one-time asking price is **USD $5,000, negotiable**. This is an asking price, not a verified valuation, completed sale, or guarantee of buyer interest.
 
-The source code and project files are available for review. No revenue, customer list, cloud backend, or payment processing is claimed.
+The proposed license is perpetual, worldwide, non-exclusive commercial/white-label use of the agreed included source code. It does not transfer intellectual-property ownership or provide exclusivity. The final price, exact files/commit, support, delivery, and license rights must be confirmed in a signed agreement before payment and delivery. CreatorDesk is included only if explicitly named in that agreement.
 
-## License
+Read [LICENSE.md](LICENSE.md) for the proposed terms. This is a discussion template, not a signed agreement or legal advice.
 
-Review the repository's `LICENSE` file and agree on applicable rights before redistributing or transferring the project.
+**Licensing contact:** [shekubellabendu91@gmail.com](mailto:shekubellabendu91@gmail.com)
+
+## Project status
+
+This is a pre-revenue project. No paying customers, revenue, cloud backend, AI API integration, or payment processing are claimed.
