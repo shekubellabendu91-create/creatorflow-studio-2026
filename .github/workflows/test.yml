@@ -20,16 +20,11 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - name: Check JavaScript syntax
-        run: |
-          node --check content.js
-          node --check app.js
-          node --check creator-desk/app.js
-          node --check tests/app.test.js
-          node --check tests/creator-desk.test.js
       - name: Install locked dependencies
         run: npm ci
-      - name: Run behavior tests
+      - name: Check JavaScript syntax
+        run: npm run check
+      - name: Run tests with Node test runner
         run: npm test
       - name: Check dependency vulnerabilities
         run: npm audit --omit=dev
