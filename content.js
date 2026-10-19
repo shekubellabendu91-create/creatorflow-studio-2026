@@ -26,6 +26,17 @@
     return String(value ?? '').replace(/[\u0000-\u001F\u007F]/g, ' ').trim().replace(/\s+/g, ' ');
   }
 
+  function validateTopic(value) {
+    const topic = cleanTopic(value);
+    if (!topic) {
+      throw new TypeError('A topic is required to generate content.');
+    }
+    if (topic.length > 200) {
+      throw new RangeError('Please keep the topic to 200 characters or fewer.');
+    }
+    return topic;
+  }
+
   function topicHashtag(topic) {
     const slug = cleanTopic(topic)
       .normalize('NFKD')
@@ -36,14 +47,7 @@
   }
 
   function buildContent(rawTopic, platform, tone) {
-    const topic = cleanTopic(rawTopic);
-    if (!topic) {
-      throw new TypeError('A topic is required to generate content.');
-    }
-    if (topic.length > 200) {
-      throw new RangeError('Please keep the topic to 200 characters or fewer.');
-    }
-
+    const topic = validateTopic(rawTopic);
     const platformName = platformNames[platform] || 'short-form video';
     const toneName = toneNames[tone] || 'friendly';
     const hooks = {
@@ -62,7 +66,7 @@
     return { hook, script, caption, cta, hashtags };
   }
 
-  const api = Object.freeze({ cleanTopic, topicHashtag, buildContent });
+  const api = Object.freeze({ cleanTopic, validateTopic, topicHashtag, buildContent });
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.CreatorFlowContent = api;
 })();
