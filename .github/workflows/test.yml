@@ -24,7 +24,7 @@ jobs:
         run: npm ci
       - name: Check JavaScript syntax
         run: npm run check
-      - name: Run tests with Node test runner
+      - name: Run explicit Node.js test suites
         run: npm test
       - name: Check dependency vulnerabilities
         run: npm audit --omit=dev
