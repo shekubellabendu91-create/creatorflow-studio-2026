@@ -37,7 +37,7 @@ No build step or third-party runtime dependency is required.
 2. Open `index.html` in a modern browser to run CreatorFlow Studio.
 3. Open `creator-desk/index.html` to run CreatorDesk.
 
-Node.js 18 or newer is needed only to run the tests. You can also serve the repository root with any static HTTP server and visit `/` or `/creator-desk/`.
+Node.js 18 or newer is needed only to run the automated checks. You can also serve the repository root with any static HTTP server and visit `/` or `/creator-desk/`.
 
 ## Development and automated tests
 
@@ -45,17 +45,23 @@ Run from the repository root:
 
 ```sh
 npm ci
+npm run check
 npm test
 ```
 
-Tests cover topic normalization, hashtag generation, platform/tone output, invalid input, and core CreatorFlow browser interactions. CreatorDesk has separate behavior tests for project creation, storage failures, malformed stored data, HTML escaping, filtering, sorting, and clearing records.
+The tests use Node.js's built-in test runner (`node --test`) and assertions; no third-party runtime dependency is required. Explicit test suites cover:
+- Topic normalization, hashtag generation, platform/tone output, and browser UI interactions.
+- Topic validation: empty input, whitespace-only input, null input, the 200-character limit, and invalid input passed to content generation.
+- CreatorDesk project creation, storage failures, malformed stored data, HTML escaping, filtering, sorting, and clearing records.
 
-GitHub Actions checks JavaScript syntax, runs the tests, and audits production dependencies. See [ARCHITECTURE.md](ARCHITECTURE.md), [DEPLOYMENT.md](DEPLOYMENT.md), and [SECURITY.md](SECURITY.md).
+The reusable `validateTopic(value)` function normalizes valid input, throws `TypeError` for an empty topic, and throws `RangeError` when a topic exceeds 200 characters.
+
+GitHub Actions checks JavaScript syntax, runs all test files, and audits production dependencies on pushes and pull requests. Dependabot checks npm dependencies weekly. See [ARCHITECTURE.md](ARCHITECTURE.md), [DEPLOYMENT.md](DEPLOYMENT.md), and [SECURITY.md](SECURITY.md).
 
 ## Technology
 
 - HTML, CSS, vanilla JavaScript
-- Node.js built-in assertions and VM for behavior tests
+- Node.js built-in test runner, assertions, and VM for behavior tests
 - No third-party runtime dependencies or build process
 
 ## Commercial / white-label licensing
