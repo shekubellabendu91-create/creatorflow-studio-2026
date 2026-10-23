@@ -59,5 +59,5 @@ test('topicHashtag handles punctuation, accents, and empty values predictably', 
 });
 
 test('validateTopic replaces control characters and normalizes repeated whitespace', () => {
-  assert.equal(validateTopic('first\\tsecond\\nthird'), 'first second third');
+  assert.equal(validateTopic('first' + String.fromCharCode(9) + 'second' + String.fromCharCode(10) + 'third'), 'first second third');
 });
