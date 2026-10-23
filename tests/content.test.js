@@ -25,3 +25,39 @@ test('buildContent continues to reject invalid topics', () => {
   assert.throws(() => buildContent('  ', 'tiktok', 'friendly'), TypeError);
   assert.throws(() => buildContent('x'.repeat(201), 'tiktok', 'friendly'), RangeError);
 });
+
+test('buildContent returns all five content fields for every supported tone', () => {
+  const expected = {
+    bold: /Stop scrolling/,
+    friendly: /Let's talk about/,
+    educational: /simple breakdown/,
+    motivational: /real progress/
+  };
+  for (const [tone, hookPattern] of Object.entries(expected)) {
+    const result = buildContent('planning a small business', 'instagram', tone);
+    assert.deepEqual(Object.keys(result).sort(), ['caption', 'cta', 'hashtags', 'hook', 'script'].sort());
+    assert.match(result.hook, hookPattern);
+    assert.match(result.script, /Instagram Reels/);
+    assert.match(result.hashtags, /#instagramreels/);
+    assert.ok(result.caption.length > 0);
+    assert.ok(result.cta.length > 0);
+  }
+});
+
+test('buildContent safely falls back for unknown platform and tone values', () => {
+  const result = buildContent('gardening', 'unknown', 'unknown');
+  assert.match(result.hook, /Let's talk about gardening/);
+  assert.match(result.script, /short-form video/);
+  assert.match(result.hashtags, /#content/);
+});
+
+test('topicHashtag handles punctuation, accents, and empty values predictably', () => {
+  const { topicHashtag } = require('../content.js');
+  assert.equal(topicHashtag('Café & Study Tips!'), '#cafestudytips');
+  assert.equal(topicHashtag('!!!'), '#content');
+  assert.equal(topicHashtag('a topic with many words'), '#atopicwithmany');
+});
+
+test('validateTopic replaces control characters and normalizes repeated whitespace', () => {
+  assert.equal(validateTopic('first\\tsecond\\nthird'), 'first second third');
+});
