@@ -75,3 +75,27 @@ The default proposed license covers **CreatorFlow Studio only** at an agreed com
 ## Project status
 
 This is a pre-revenue project. No paying customers, revenue, AI API integration, backend, or payment processing are claimed.
+
+## Quality assurance
+
+The GitHub Actions quality workflow runs on pushes, pull requests, and manual dispatch. It checks JavaScript syntax and executes the regression tests on Node.js 18, 20, and 22, generates a built-in Node.js test coverage report, audits production dependencies, and builds the Docker image. The project currently has no third-party production dependencies.
+
+Run all local validation with:
+
+```sh
+npm ci
+npm run validate
+```
+
+Run the coverage-enabled test suite separately with `npm run coverage`. Coverage is reported by Node.js's built-in test runner; it is not a claim that every line or browser behavior is covered.
+
+## Run with Docker
+
+Build and start the static website using Docker:
+
+```sh
+docker build -t creatorflow-studio .
+docker run --rm -p 8080:80 creatorflow-studio
+```
+
+Open `http://localhost:8080` for CreatorFlow Studio and `http://localhost:8080/creator-desk/` for the separate CreatorDesk prototype. The container serves static files with Nginx; it does not add a backend, accounts, AI API, or cloud data storage.
