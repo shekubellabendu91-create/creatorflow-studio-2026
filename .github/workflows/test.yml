@@ -10,21 +10,38 @@ permissions:
 
 jobs:
   test:
+    name: Tests (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20, 22]
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Install locked dependencies
         run: npm ci
       - name: Check JavaScript syntax
         run: npm run check
-      - name: Run explicit Node.js test suites
+      - name: Run automated tests
         run: npm test
-      - name: Check dependency vulnerabilities
+      - name: Generate test coverage report
+        run: npm run coverage
+      - name: Check production dependency vulnerabilities
         run: npm audit --omit=dev
+
+  container-build:
+    name: Validate Docker image build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build static site image
+        run: docker build --tag creatorflow-studio:test .
