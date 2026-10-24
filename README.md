@@ -49,10 +49,10 @@ npm run check
 npm test
 ```
 
-The tests use Node.js's built-in test runner (`node --test`) and assertions; no third-party runtime dependency is required. Explicit test suites cover:
+The tests use Node.js's built-in test runner (`node --test`) and assertions; no third-party runtime dependency is required. ESLint runs as a development-time check through `npm run lint`. Explicit test suites cover:
 - Topic normalization, hashtag generation, platform/tone output, and browser UI interactions.
 - Topic validation: empty input, whitespace-only input, null input, the 200-character limit, and invalid input passed to content generation.
-- CreatorDesk project creation, storage failures, malformed stored data, HTML escaping, filtering, sorting, and clearing records.
+- CreatorDesk project creation, storage failures, malformed stored data, HTML escaping, filtering, sorting, and clearing records.\n- Shared CreatorDesk validation for missing fields, invalid status/date, and out-of-range budgets.
 
 The reusable `validateTopic(value)` function normalizes valid input, throws `TypeError` for an empty topic, and throws `RangeError` when a topic exceeds 200 characters.
 
@@ -99,3 +99,4 @@ docker run --rm -p 8080:80 creatorflow-studio
 ```
 
 Open `http://localhost:8080` for CreatorFlow Studio and `http://localhost:8080/creator-desk/` for the separate CreatorDesk prototype. The container serves static files with Nginx; it does not add a backend, accounts, AI API, or cloud data storage.
+\n## Optional AWS infrastructure\n\nThe `terraform/` directory defines an optional AWS deployment using a private S3 bucket and CloudFront Origin Access Control. It is separate from the default GitHub Pages deployment and can incur AWS charges if applied. Terraform validation runs in GitHub Actions. Review costs, permissions, and the plan before applying; this repository does not automatically upload site files to S3.\n
