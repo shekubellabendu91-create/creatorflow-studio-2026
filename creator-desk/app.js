@@ -1,6 +1,9 @@
 (() => {
   'use strict';
   const STORAGE_KEY = 'creatordesk.projects.v1';
+  const validators = window.CreatorDeskValidators;
+  if (!validators) throw new Error('CreatorDesk validators failed to load.');
+  const { validateProject } = validators;
   const form = document.getElementById('project-form');
   const list = document.getElementById('project-list');
   const empty = document.getElementById('empty-state');
@@ -69,17 +72,21 @@
     event.preventDefault();
     clearFormMessage();
     const data = new FormData(form);
-    const project = {
-      id: (globalThis.crypto && typeof crypto.randomUUID === 'function') ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2),
-      client: String(data.get('client') || '').trim(),
-      project: String(data.get('project') || '').trim(),
-      budget: Number(data.get('budget')),
-      due: String(data.get('due') || ''),
-      status: String(data.get('status') || 'Lead'),
-      notes: String(data.get('notes') || '').trim()
-    };
-    if (!project.client || !project.project || !Number.isFinite(project.budget) || project.budget < 0) {
-      message.textContent = 'Enter a client, project name and valid non-negative budget.';
+    let project;
+    try {
+      project = {
+        id: (globalThis.crypto && typeof crypto.randomUUID === 'function') ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2),
+        ...validateProject({
+          client: data.get('client'),
+          project: data.get('project'),
+          budget: data.get('budget'),
+          due: data.get('due'),
+          status: data.get('status'),
+          notes: data.get('notes')
+        })
+      };
+    } catch (error) {
+      message.textContent = error.message || 'Please check the project details and try again.';
       message.style.color = '#b42318';
       return;
     }
