@@ -19,7 +19,7 @@ function validateProject(data) {
   }
   const client = requiredText(data.client, 'Client', 80);
   const project = requiredText(data.project, 'Project name', 100);
-  const budget = typeof data.budget === 'number' ? data.budget : Number(data.budget);
+  if (data.budget === '' || data.budget == null || (typeof data.budget === 'string' && !data.budget.trim())) {\n    throw new TypeError('Budget is required.');\n  }\n  const budget = typeof data.budget === 'number' ? data.budget : Number(data.budget);
   if (!Number.isFinite(budget) || budget < 0 || budget > 100000000) {
     throw new RangeError('Budget must be a finite number between 0 and 100,000,000.');
   }
