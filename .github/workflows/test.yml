@@ -29,6 +29,10 @@ jobs:
         run: npm ci
       - name: Check JavaScript syntax
         run: npm run check
+      - name: Enforce lint rules
+        run: npm run lint
+      - name: Validate complete project
+        run: npm run validate
       - name: Run automated tests
         run: npm test
       - name: Generate test coverage report
