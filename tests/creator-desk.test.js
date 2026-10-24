@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
+const CreatorDeskValidators = require('../creator-desk/validators.js');
 
 function element(id, extra = {}) {
   return Object.assign({
@@ -24,6 +25,7 @@ function makeHarness({ initialStorage = '[]', storageThrows = false } = {}) {
   const fieldValues = { client: 'Acme Studio', project: 'Short video package', budget: '125', due: '2026-12-01', status: 'Lead', notes: 'First draft' };
   const store = new Map([['creatordesk.projects.v1', initialStorage]]);
   const context = {
+    window: { CreatorDeskValidators },
     document: {
       getElementById: id => els[id] || null,
       createElement: tag => element(tag),
