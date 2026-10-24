@@ -4,10 +4,11 @@
   "private": true,
   "description": "Browser-based short-form content pack generator.",
   "scripts": {
-    "check": "node --check content.js && node --check app.js && node --check creator-desk/app.js && node --check tests/app.test.js && node --check tests/content.test.js && node --check tests/creator-desk.test.js",
+    "check": "node --check content.js && node --check app.js && node --check creator-desk/app.js && node --check tests/app.test.js && node --check tests/content.test.js && node --check tests/creator-desk.test.js && node --check creator-desk/validators.js && node --check tests/validators.test.js",
     "test": "node --test tests/*.test.js",
     "coverage": "node --experimental-test-coverage --test tests/*.test.js",
-    "validate": "npm run check && npm test && npm run coverage"
+    "validate": "npm run check && npm test && npm run coverage",
+    "lint": "npx --yes eslint@9 ."
   },
   "engines": {
     "node": ">=18"
