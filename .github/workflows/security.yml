@@ -1,0 +1,54 @@
+name: Security analysis
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.js"
+      - "terraform/**"
+      - ".github/workflows/security.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "**/*.js"
+      - "terraform/**"
+      - ".github/workflows/security.yml"
+  schedule:
+    - cron: "23 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  codeql:
+    name: CodeQL JavaScript analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+          build-mode: none
+      - name: Analyze JavaScript
+        uses: github/codeql-action/analyze@v3
+
+  terraform-policy:
+    name: Terraform security policy scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Scan Terraform configuration with Checkov
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: terraform
+          framework: terraform
+          soft_fail: false
+          quiet: true
